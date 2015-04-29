@@ -1,0 +1,338 @@
+;   autor : Etienne Delay
+;   date : 2013 November
+;
+;   This file is part of VICTOR : Agent Based Model (ABM)  on 
+;   viticolture in a montaneous landscape focusing on Chardonnay and 
+;   Climate Change (CC)
+;
+;   VICTOR is free software: you can redistribute it and/or modify
+;   it under the terms of the GNU General Public License as published by
+;   the Free Software Foundation, either version 3 of the License, or
+;   (at your option) any later version.
+;
+;   VICTOR is distributed in the hope that it will be useful,
+;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;   GNU General Public License for more details.
+;
+;   You should have received a copy of the GNU General Public License
+;   along with CHAMOMiLE.  If not, see <http://www.gnu.org/licenses/>.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;    PROCEDURES POUR LE CALCUL DE MORAN INDEX
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+to calculate-averages
+  ;;ici on va calucler la somme des valeurs qu'on cherche a corréléer spatialement (pour moi l'innov individuelle des viticulteurs)
+  let atotal 0
+  ask farmers [
+    set atotal ( atotal + iInnovIndiv )
+  ] 
+  set aaverage ( atotal / #agents ) 
+  
+end
+
+to calculate-moransI
+  
+  let spatial-weight 0
+  let total-spatial-weight 0
+  let second-numerator-a 0
+  let second-denominator-a 0
+
+  let i []
+  let j []
+  set i [who] of farmers ;;récupère la liste des noms de farmers
+  set j [who] of farmers 
+
+  ; adding up denominator of first term (EE wij)
+
+;  set i 0
+;  set j 0
+  foreach i [
+    let ii ?1
+    foreach j [
+      let jj ?1
+      set spatial-weight wij ii jj   
+      set total-spatial-weight total-spatial-weight + spatial-weight
+    ] 
+  ]
+
+  
+  ; adding up numerator of second term ((EE wij(xi - xmean)(xj-xmean))
+  
+  foreach i [
+    let ii ?1
+    foreach j [
+      let jj ?1
+      ask farmer ii [ set spatial-weight wij ii jj ]
+      let i-offaverage-a ( [iInnovIndiv] of farmer ii - aaverage )
+      let j-offaverage-a ( [iInnovIndiv] of farmer jj - aaverage )
+      
+      let ij-second-numerator-a ( spatial-weight * i-offaverage-a * j-offaverage-a )
+      
+      set second-numerator-a second-numerator-a + ij-second-numerator-a
+    ] 
+  ]
+  
+
+  
+  ; adding up denominator of 2nd term. Duplicates part of above, but simpler this way.
+   
+  ask farmers [                                                                   
+    
+    let offaverage-a ( iInnovIndiv - aaverage )   
+    set second-denominator-a second-denominator-a + ( offaverage-a * offaverage-a )
+    
+  ]
+  
+  if second-denominator-a = 0 [ set quit 1 ]
+  
+  set moransI ( #agents / total-spatial-weight) * ( second-numerator-a / second-denominator-a )
+  
+end
+
+to calculate-expected
+
+  if formulation = "oregon"        [ set expected ( 1 / (#agents - 1) ) ]
+  if formulation = "santabarbara"  [ set expected ( -1 / ( #agents - 1) ) ] 
+  if formulation = "ottawa-normal" [ set expected ( -1 / ( #agents - 1) ) ] 
+  if formulation = "ottawa-random" [ set expected ( -1 / ( #agents - 1) ) ] 
+    
+end
+
+to calculate-significance
+  
+; S1,2,3,4,5 and K are all subcomponents of the rather complicated process of measuring variance
+; S3 and S5 are used in oregon formulation only
+; K is used in santabarbara formulation only
+
+  let S1 0
+  let S2 0
+  let S3 0
+  let S4 0
+  let S5 0
+  let K 0
+  
+  let i []
+  let j []
+  set i [who] of farmers ;;récupère la liste des noms de farmers
+  set j [who] of farmers 
+
+  ; adding up denominator of first term (EE wij)
+  ;S1  
+
+  let total-squared-duplicate-spatial-weight 0
+   foreach i [
+     let ii ?1
+     foreach j [
+       let jj ?1
+       let spatial-weight 0
+       
+       ask farmer ii [ set spatial-weight wij ii jj ]
+       let duplicate-spatial-weight ( spatial-weight + spatial-weight )
+       let squared-duplicate-spatial-weight ( duplicate-spatial-weight * duplicate-spatial-weight )
+       set total-squared-duplicate-spatial-weight total-squared-duplicate-spatial-weight + squared-duplicate-spatial-weight
+     ] 
+   ]  
+  
+
+       
+  set S1 ( total-squared-duplicate-spatial-weight / 2 )
+
+  ;S2
+  
+  let total-squared-duplicate-total-spatial-weight 0
+  
+
+  
+  foreach i [
+    let ii ?1
+    let total-spatial-weight 0
+    foreach j [
+      let jj ?1
+      let spatial-weight 0  
+      ask farmer ii [ set spatial-weight wij ii jj ]
+      set total-spatial-weight total-spatial-weight + spatial-weight
+    ] 
+    let duplicate-total-spatial-weight total-spatial-weight * 2
+    let squared-duplicated-total-spatial-weight duplicate-total-spatial-weight * duplicate-total-spatial-weight
+    set total-squared-duplicate-total-spatial-weight total-squared-duplicate-total-spatial-weight + squared-duplicated-total-spatial-weight
+  ]  
+    
+    
+
+
+  set S2 total-squared-duplicate-total-spatial-weight
+
+
+  ; S3  
+  ; S3 is broken up into an operation on a couple of sub-summations (sigmas)
+    
+    let sigma1 0
+    let sigma2 0
+  
+    ; sigma1
+  
+    let total-cubed-offaverage-a 0
+
+    ask farmers [ 
+      let offaverage-a iInnovIndiv - aaverage
+      let cubed-offaverage-a offaverage-a * offaverage-a * offaverage-a * offaverage-a
+      set total-cubed-offaverage-a total-cubed-offaverage-a + cubed-offaverage-a
+     ]
+     
+    set sigma1 total-cubed-offaverage-a
+    
+    ; sigma2
+    
+    let total-squared-offaverage-a 0
+    
+    ask farmers [ 
+      let offaverage-a iInnovIndiv - aaverage
+      let squared-offaverage-a offaverage-a * offaverage-a
+      set total-squared-offaverage-a total-squared-offaverage-a + squared-offaverage-a
+     ]    
+    
+    set sigma2 total-squared-offaverage-a
+    
+    if sigma2 = 0 [ set quit 1 ]
+    
+  set S3 ( ( 1 / #agents ) * sigma1 ) / ( ( ( 1 / #agents ) * sigma2 ) *( ( 1 / #agents ) * sigma2 ) ) 
+
+
+
+  ;S4
+   
+    ;sigma3
+  
+    let sigma3 0
+    let total-spatial-weight 0  
+      
+;    set i 0  + nblocality ;;pour sauter le who des locality
+    foreach i [
+      let ii ?1
+      foreach j [
+        let jj ?1
+        let spatial-weight 0  
+        ask farmer ii [ set spatial-weight wij ii jj ]
+        set total-spatial-weight total-spatial-weight + spatial-weight
+      ] 
+      set sigma3 total-spatial-weight
+    ]  
+    
+
+  
+  set S4 ( ( ( #agents * #agents ) - 3 * #agents + 3 ) * S1 - #agents * S2 + 3 * ( sigma3 * sigma3 ) )
+  
+  set S5 ( S1 - 2 * #agents * S1 + 6 * ( sigma3 * sigma3 ) )
+    
+  set K ( ( #agents * sigma1 ) / ( sigma2 * sigma2 ) )
+  
+  let var 0
+  
+  if formulation = "oregon" [ 
+    set var ( ( #agents * S4 - S3 * S5 ) / ( ( #agents - 1 ) * ( #agents - 2 ) * ( #agents - 3 ) * ( sigma3 * sigma3 ) ) ) ]
+  
+  if formulation = "santabarbara" [
+
+    let N1 ( #agents * ( S1 * ( #agents * #agents - 3 * #agents + 3 ) - #agents * S2 + 3 * sigma3 * sigma3 ) )
+    let N2 ( K * ( S1 * ( #agents * #agents - #agents ) - 2 * #agents * S2 + 6 * ( sigma3 * sigma3 ) ) )
+    let D ( ( #agents - 1) * ( #agents - 2 ) * ( #agents - 3 ) * ( sigma3 * sigma3 ) )
+    
+;    if debug = 3 [ type "N1: " type N1 type " N2: " type N2 type " D: " type D print "" ]
+    
+    set var ( ( N1 / D ) - ( N2 / D ) - ( ( 1 / ( #agents - 1) ) * ( 1 / ( #agents - 1 ) ) ) )
+    
+   ]
+   
+  if formulation = "ottawa-normal" [ 
+    set var ( 
+      ( 
+        ( 1 / ( ( sigma3 * sigma3 ) * ( #agents * 2 - 1 ) ) )
+        * ( ( #agents * #agents ) * S1 - #agents * S2 + 3 * ( sigma3 * sigma3 ) )
+      )
+      -  ( expected * expected )
+    )
+   ]
+  
+  if formulation = "ottawa-random" [
+    let N1 ( 
+      ( #agents
+        * ( 
+            (#agents * #agents - 3 * #agents + 3) * S1
+            - #agents * S2 + 3 * ( sigma3 * sigma3) 
+          )
+       ) )
+    let N2 ( 
+      ( S3 
+         * ( 
+             ( #agents * #agents - #agents ) * S1
+             - 2 * #agents * S2 + 6 * ( sigma3 * sigma3 ) 
+           )
+       ) )
+    let D ( ( #agents - 1 ) * ( #agents - 2 ) * ( #agents - 3 ) * ( sigma3 * sigma3) )
+ 
+;    if debug = 3 [ type "N1: " type N1 type " N2: " type N2 type " D: " type D print "" ]
+    
+    set var ( ( ( N1 - N2 ) / D ) - ( expected * expected  ) )                            ; assuming a superscript typo cuch that expected should be squared and not simply doubled
+   ]
+  
+;  if debug = 3 [ type "var: " type var print "" print "" ] 
+  
+  ;Z
+   
+  if formulation = "oregon" [ set Z ( ( moransI - expected ) / var ) ] 
+  if formulation = "santabarbara" [ set Z ( ( moransI - expected ) / var ) ]  
+  if formulation = "ottawa-normal" [ set Z ( ( moransI - expected ) / var ) ]  
+  if formulation = "ottawa-random" [ set Z ( ( moransI - expected ) / sqrt var ) ]  
+  
+end
+
+; wij
+;
+; takes i and j as identifiers for two turtles
+; calculates weighting factor between them
+
+to-report wij [ ii jj ]
+
+  if weighting = "inverse-distance" [
+
+    let spatial-distance 0  
+    ask farmer ii [ set spatial-distance distance turtle jj ]
+    ifelse spatial-distance = 0
+      [ report 1 ]                                            ; this is flawed - adjacent and overlapping pairs recieve the same weighting
+      [ report ( 1 / spatial-distance ) ] 
+   ]
+   
+
+  if weighting = "normalized-inverse-distance" [
+
+    let spatial-distance 0  
+    let world-diag sqrt ( world-width * world-width + world-height * world-height )
+    
+    ask farmer ii [ set spatial-distance distance turtle jj ]
+    ifelse spatial-distance = 0
+      [ report 1 ]                                            ; this is flawed - adjacent and overlapping pairs recieve the same weighting
+      [ let inverse-distance world-diag / spatial-distance
+      report ( inverse-distance / world-diag ) ] 
+   ]  
+  
+  
+  if weighting = "simple-distance" [
+  
+    let spatial-distance 0  
+    ask farmer ii [ set spatial-distance distance turtle jj ]
+    report spatial-distance
+   ] 
+
+  if weighting = "normalized-distance" [
+  
+    let spatial-distance 0
+    let world-diag sqrt ( world-width * world-width + world-height * world-height )
+    
+    ask farmer ii [ set spatial-distance distance turtle jj ]
+    let normalized-spatial-distance spatial-distance / world-diag
+    report normalized-spatial-distance
+    
+   ]
+
+end
