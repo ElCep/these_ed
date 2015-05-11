@@ -41,7 +41,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h3>Réflexions géographiques sur l'usage des systèmes multi-agents dans la compréhension des processus d'évolution des territoire viticoles de fortes pentes</h3>
+					<h3>Réflexions géographiques sur l'usage des systèmes multi-agents dans la compréhension des processus d'évolution des territoires viticoles de fortes pentes</h3>
 					<h4>Le cas de la Côte Vermeille et du <em>val di Cembra</em></h4>
 					<p>
 						<small>Présenté et soutenue par <a href="http://recherche.flsh.unilim.fr/geolab/etienne-delay/">Etienne DELAY</a></small> </br>
@@ -113,26 +113,118 @@
 							</ol>
 						</small>
 					</section>
+					<!--Présentation des terrains d'étude-->
 					<section>
 						<h3>Les terrains d'études</h3>
 						<ul>
-							<li>Le <i>val di Cembra</i></li>
 							<li>Les AOC Banyuls - Collioure</li>
+							<li>Le <i>val di Cembra</i></li>
 						</ul>
 						<script src="https://embed.github.com/view/geojson/ElCep/vitiTerroir/master/data_geo/points_terrain_these.geojson"></script>
 					</section>
 					<section>
 						<h3>Les terrains d'études</h3>
-						<img width="1000" data-src="./img/cembra2-s.jpg" alt="panorama val di Cembra">
-						<p>Le <i>val di Cembra</i></p>
 						<img width="1000" data-src="./img/pano-banyuls.jpg" alt="panorama val di Cembra">
 						<p>Banyuls-sur-mer</p>
+						<img width="1000" data-src="./img/cembra2-s.jpg" alt="panorama val di Cembra">
+						<p>Le <i>val di Cembra</i></p>
+						<aside class="notes">
+							<ul>
+								<li>Un vignoble en contexte de pente</li>
+								<li>Quatre communes</li>
+								<li>Viticulture jardinée (Briffaud et Davasse, 2012)</li>
+								<li>Accès au tourisme</li>
+								<li>Une forte présente de la coopération sous toutes ses formes</li>
+							</ul>
+						</aside>
 					</section>
 				</section>
-				<!-- materiel et methodes ?-->
+				<!-- Cadre méthodologique ?-->
 				<section>
 					<section>
-						<h2>Materiels & méthodes</h2>
+						<h2>Cadrage Méthodologique</h2>
+					</section>
+					<section data-background="img/stormtrooper_simu.jpg" data-background-transition="zoom">
+						<h3>Modéliser ...</h3>
+						<p>Pour théoriser et &#171; dépacer l'unicité des lieux et des phénomènes observés &#187; (Pumain, 2003, p.27)</p>
+						<blockquote cite="http://www.amazon.fr/MODELISATION-SIMULATION-DECOSYSTEMES-d%C3%A9terministes-simulations/dp/2225853630">
+							&#171; un modèle est une abstraction qui simplifie le système réel étudié [...] pour se focaliser sur les aspects qui intéressent le modélisateur et qui définissent les problématiques du modèle. &#187;
+						</blockquote>
+						<p align="right">Coquillard et Hill (1997, p.7)</p>
+						</br>
+						<small>crédit photo : <a href="https://www.flickr.com/photos/jdhancock/3569262181/in/photostream/">JD Hancock</a> Flick'r</small>
+					</section>
+					<section>
+						<h3>... et simuler</h3>
+							<blockquote cite="http://www.amazon.fr/MODELISATION-SIMULATION-DECOSYSTEMES-d%C3%A9terministes-simulations/dp/2225853630">
+								&#171; La simulation consiste à faire évoluer une abstraction d’un système au cours du temps afin d’aider à comprendre le fonctionnement et le comportement de ce système et à appréhender certaines de ses caractéristiques dynamiques dans l’objectif d’évaluer différentes décisions &#187;
+							</blockquote>
+							<p align="right">Coquillard et Hill (1997, p.11)</p>
+					</section>
+					<section data-background="img/Plaque_assay_macro.jpg" data-background-transition="zoom">
+						<h3>Les systèmes multi-agents (SMA)</h3>
+						<blockquote>
+							<p align="left">&#171;Un agent est une entité physique ou virtuelle</p>
+							<ul>
+								<li>capable d'agir dans un environnement</li>
+								<li>mue par un ensemble de tendances (sous forme d'objectifs)</li>
+								<li>capable de percevoir (de manière limitée) son environnement</li>
+								<li>dont le comportement tend à satisfaire ses objectifs&#187;</li>
+							</ul>
+						</blockquote>
+						<p align="right">J. Ferber 1995</p>
+						<small>crédit photo : <a href="http://fr.wikipedia.org/wiki/Fichier:Plaque_assay_macro.jpg">Y tambe</a> in wikimedia commons</small>
+					</section>
+					<section>
+						<h3>De l'empirisme dans la modélisation 1/2</h3>
+						<p>La modélisation est souvant perçu comme la forces des sciences expérimentales</p>
+						<p>Les SMA ouvre la voies pour les SHS aux <em>construits formels</em></p>
+						<blockquote cite="http://jasss.soc.surrey.ac.uk/18/1/18.html">
+							« formal models are essential to science, not because they are more "true" than other kinds of model, but that they facilitate a collective and progressive development of knowledge between researchers »
+						</blockquote>
+						<p align="right">Edmonds (<a href="http://jasss.soc.surrey.ac.uk/18/1/18.html">2015</a>, §1.2)</p>
+						<aside class="notes">
+							<p>C'est précisement ce que nous avons essayer de faire proposer de developper un savoir paratger</p>
+						</aside>
+					</section>
+					<section>
+						<h3>De l'empirisme dans la modélisation 2/2</h3>
+						<img width="500" data-src="img/theory_cassili.png" alt="modélisation selon cassili et al.">
+						<p align="right">Tubaro, P. et A. Casilli (<a href="https://hal.archives-ouvertes.fr/hal-00661425">2010</a>).</p>
+						<aside class="notes">
+							<p>(A) -> le point de départ du processus de recherche. Une fois les hypothèses de recherche et les premier résultats empiriques formulés, une théorie peut émerger (B). Un système à base d’agents peut alors être formalisé comme proof of concept, testé et corrigé. Des étapes supplémentaires peuvent êtres ajoutées pour intégrer des validations empiriques des données.</p>
+						</aside>
+					</section>
+					<section data-background="img/environnement.jpg" data-background-transition="zoom">
+						<h3>Caractériser notre pratique</h3>
+						<p>Nous avons construit un écosystèmes de modèles s'intérogeant et se répondant les uns les autres</p>
+						<p>Pour cela nous avons receuillis plusieur type d'informations:</p>
+						<ul>
+							<li>Des données d'observations</li>
+							<li>Des relever physiques (température, acidité, comptage)</li>
+							<li>Des narations (entretients)</li>
+							<li>...</li>
+						</ul>
+						</br>
+						<small>crédit photo : <a href="https://www.flickr.com/photos/infomatique/5846162059/in/photolist-7PMDsP-o3QCYs-78e9pa-8zNey2-qV6z8P-4Ve9EZ-9UB7iz-z9Crc-77Yhc3-7WkVn6-8vwL63-8vt5fr-8vys7q-8vujZV-8vtC48-63pkYL-8igqTe-58xyqd-r9ysjS-6rgE2K-ePJ3xs-8yq6p3-z9Crn-8m44Pn-8h1w19-2UinmB-bqgt9z-64MHqN-dsUhUG-93qjxV-4Vt4bE-a5sj6k-rPnf5X-7hjCzB-6oWub4-8468qj-dhAHji-cgXRCQ-4VinGo-aM8zWp-7YKwbh-67dsCM-9KdDi3-7JYnMT-ajpkHp-6YX2WC-85SagC-672gyu-8vuq6B-nDBFGC">William Murphy
+</a>on Flick'r</small>
+					</section>
+					<section>
+						<h3>Situer les modèles et leurs objectifs</h3>
+						<p>Nous présentons six modèles</p>
+						<img width="450" data-src="img/positionnement_modeles.png" alt="Positionnement des modèles d'après Banos et Sanders. 2013">
+						<p align="right"><small>d'après la grille de lecture proposé par Banos et Sanders (2013)</small></p>
+						<aside class="notes">
+							<p>Evoquer les 6 modèles</p>
+							<ul>
+								<li>Dion Still Alive</li>
+								<li>VIcTOr</li>
+								<li>LAME</li>
+								<li>CiVIsMe</li>
+								<li>acidityGIS</li>
+								<li>CELL</li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 				<!-- Résultats-->
