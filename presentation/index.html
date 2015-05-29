@@ -90,12 +90,17 @@
 					<section>
 						<h3>Le contexte général</h3>
 						<p>La viticulture de montagne et de forte pente ne fait pas, à proprement parlé, l'objet d'études. Elle est par contre souvant intégrer dans des réflexion viticole au sens large.</p>
-						<p>L'intuition initale nous a pousser à réflechir explorer les influances des spécificitées liée à la pente dans les pratiques socio-spatiale viticole.</p>
+						<p>L'intuition initale nous a pousser à réflechir et explorer les influances des spécificitées liée à la pente dans les pratiques socio-spatiale viticole.</p>
+					</section>
+					<section>
+						<h3>Definition et limites conceptuelles</h3>
+						<img data-src="./img/owl_terroir_territoire.png" alt="Ontologie terroir-terroitoire">
+						<p align="right"><small>Première publication de l'ontologie du terroir : <a href="http://www.projetsdepaysage.fr/fr/du_paysage_au_terroir_viticole_de_forte_pente_a_la_recherche_des_leviers_du_management_territorial">Delay (2013)</a></small></p>
 					</section>
 					<section>
 						<h3>Les spécificutées de la viticulture de pentes</h3>
 						<ul>
-							<li>Des terrains souvant pauvre rapidement reconnu comme qualitatif</li>
+							<li>Des terrains souvent pauvre rapidement reconnu comme qualitatif</li>
 							<li>Des contidtions de travail difficiles, qui interdisent la mécanisation</li>
 							<li>Un accès aux parcelles complexe et des distance temps accentuer par la pente</li>
 							<li>Un structuration sociale particulière qui fait la part belle aux petite exploitant et au système coopératif</li>
@@ -120,7 +125,7 @@
 							<li>Les AOC Banyuls - Collioure</li>
 							<li>Le <i>val di Cembra</i></li>
 						</ul>
-						<script src="https://embed.github.com/view/geojson/ElCep/vitiTerroir/master/data_geo/points_terrain_these.geojson"></script>
+						<script src="https://embed.github.com/view/geojson/ElCep/vitiTerroir/vitierroir4geographer/data_geo/points_terrain_these.geojson"></script>
 					</section>
 					<section>
 						<h3>Les terrains d'études</h3>
@@ -142,7 +147,21 @@
 				<!-- Cadre méthodologique ?-->
 				<section>
 					<section>
-						<h2>Cadrage Méthodologique</h2>
+						<h2>Cadre Méthodologique pour</br>la modélisation</br>et la simulation</h2>
+					</section>
+					<section>
+						<h3>Une approche ...</h3>
+						<p>Les phénomènes que nous avons chercher à modéliser sont complexe et impliquent des comportement humain.</p>
+						<p>Cela constitue une dificulté quand l'objectifs est de modéliser et simuler.</p>
+						<p>Nous avons donc opter pour une approche <b>post-normale</b> des sciences (Funtowic et Ravertz 1993)</p></br>
+					</section>
+					<section>
+						<h3>post-normale ?</h3>
+						<blockquote cite="http://www.amazon.fr/MODELISATION-SIMULATION-DECOSYSTEMES-d%C3%A9terministes-simulations/dp/2225853630">
+							&#171; when uncertainties are either of the epistemological or ethical kind, or when decision stakes reflect conflicting purposes among staholders &#187;
+						</blockquote>
+						<p align="right">Funtowic et Ravertz 1993 (p. 750)</p>
+						<p>Plutôt que d’ignorer l’inconnue ou la complexité inhérente aux comportement humains, les sciences post-normales l’associent en essayant de la circonscrire en utilisant une communauté de pairs.</p>
 					</section>
 					<section data-background="img/stormtrooper_simu.jpg" data-background-transition="zoom">
 						<h3>Modéliser ...</h3>
@@ -160,6 +179,9 @@
 								&#171; La simulation consiste à faire évoluer une abstraction d’un système au cours du temps afin d’aider à comprendre le fonctionnement et le comportement de ce système et à appréhender certaines de ses caractéristiques dynamiques dans l’objectif d’évaluer différentes décisions &#187;
 							</blockquote>
 							<p align="right">Coquillard et Hill (1997, p.11)</p>
+							<aside class="notes">
+							<p>On peut aussi siter Thom (2009) L'expérimentation par elle-même ne peut guère conduire à des progrès [...]. Elle peut permettre de contrôler que si on à une théorie, donc si l'on dispose d'outils d'exploration. La théorisation [...] est liée à la possibilité de plonger le réel dans un virtuel imaginaire, doté de propriétés génératives[...]"</p>
+						</aside>
 					</section>
 					<section data-background="img/Plaque_assay_macro.jpg" data-background-transition="zoom">
 						<h3>Les systèmes multi-agents (SMA)</h3>
@@ -189,8 +211,9 @@
 					</section>
 					<section>
 						<h3>De l'empirisme dans la modélisation 2/2</h3>
-						<img width="500" data-src="img/theory_cassili.png" alt="modélisation selon cassili et al.">
-						<p align="right">Tubaro, P. et A. Casilli (<a href="https://hal.archives-ouvertes.fr/hal-00661425">2010</a>).</p>
+						<img width="450" data-src="img/theory_cassili.png" alt="modélisation selon cassili et al.">
+						<p align="right"><small>Tubaro, P. et A. Casilli (<a href="https://hal.archives-ouvertes.fr/hal-00661425">2010</a>).</small></p>
+						<p>Dans le cadre de sciences post-normales, les acteurs nous accompagne tout au long de ces étapes.</p>
 						<aside class="notes">
 							<p>(A) -> le point de départ du processus de recherche. Une fois les hypothèses de recherche et les premier résultats empiriques formulés, une théorie peut émerger (B). Un système à base d’agents peut alors être formalisé comme proof of concept, testé et corrigé. Des étapes supplémentaires peuvent êtres ajoutées pour intégrer des validations empiriques des données.</p>
 						</aside>
@@ -222,15 +245,58 @@
 								<li>LAME</li>
 								<li>CiVIsMe</li>
 								<li>acidityGIS</li>
-								<li>CELL</li>
+								<li>CeLL</li>
 							</ul>
+							<p>Mais d'autres n'ont pas été intégrer à la thèse ... <strong>chamomile</strong> (publier dans territoire du vin), <strong>MAsIV</strong> (présenter dans le cadre de in vino varietas), <strong>Sisbio</strong> (fiche peda de MAPS), <strong>crypthknit</strong> MAPS 7 ,Adaptation de <strong>Christaller still alive</strong> dans le mémoire de master de Robin Mairot etc.</p>
 						</aside>
+					</section>
+					<section>
+						<h3>Une construction itérative et partagée</h3>
+						<small>
+							<table>
+								<tr>
+									<th>Modèles</th>
+									<th>Echelles</th>
+									<th>Acteurs</th>
+								</tr>
+								<tr>
+									<td>Dion Still Alive & VIcTOr</td>
+									<td>Petite échelle</td>
+									<td>Chercheurs ou Institutions nationnal</td>
+								</tr>
+								<tr>
+									<td>LAME & CiVIsMe</td>
+									<td>méso-échelle</td>
+									<td>Institutions régional/national</td>
+								</tr>
+								<tr>
+									<td>acidityGIS & CeLL</td>
+									<td>Grande échelle</td>
+									<td>Acteurs locaux</td>
+								</tr>
+							</table>
+						</small>
+						<p>Ces modèles nous permettent d'obtenir des résultats à différentes échelles et pour différents usages</p>
 					</section>
 				</section>
 				<!-- Résultats-->
 				<section>
 					<section>
-						<h2>Résultat et Discutions</h2>
+						<h2>Principaux résultats et discussions</h2>
+					</section>
+					<section>
+						<h3>Dion Still Alive & VIcTOr</h3>
+					</section>
+					<section>
+						<h3>LAME & CiVIsMe</h3>
+						<video preload="auto" controls="controls" src="video/CiVIsMe.webm" height="300"></video>
+					</section>
+					<section>
+						<h3>acidityGIS & CeLL</h3>
+					</section>
+					<section>
+						<h3>Couplage : la limite ?</h3>
+						
 					</section>
 				</section>
 				<!--Conclusion-->
@@ -242,328 +308,12 @@
 				<!--Remerciement-->
 				<section data-background="img/fin.jpg" data-background-transition="slide">
 					<h3>Merci de votre attention</h3>
-					<img height="200" src="img/github.png" alt="logo gitHub"></img>
-					<p>Vous pouvez retrouver cette présentation sur GitHub</p>
-					<img height="100" src="img/QR_code_contact.png" alt="contactez moi!"></img></br>
-					<small>réalisé avec <a href="https://github.com/hakimel/reveal.js">reveal.js</a></small></br>
+					<img src="img/github.png" alt="logo gitHub" width="13.9%"></img>
+					<img src="img/QR_code_contact.png" alt="contactez moi!" width="20%"></img></br>
+					<p>Vous pouvez retrouver cette présentation, le manuscrit de thèse et  l'ensemble des modèles sur GitHub</br><a href="https://github.com/ElCep/these_ed">http://unil.im/Ku9xI</a></p>
+					<small>Présentation réalisé avec <a href="https://github.com/hakimel/reveal.js">reveal.js</a></small></br></br>
 					<small>crédit photo : <a href="http://www.flickr.com/photos/misnyot/6357634305/sizes/m/in/photostream/">Thomas Misnyovszki </a> on Flick'r</small>
 				</section>
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code>Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							<tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="//www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
-
 			</div>
 
 		</div>
