@@ -42,6 +42,9 @@ body {
   background: #FF5E99;
   color: #fff;
   text-shadow: none; }
+p {
+  text-align:justify;
+}
 
 /*********************************************
  * VIEW FRAGMENTS
